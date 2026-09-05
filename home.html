@@ -96,41 +96,11 @@
 <body class="relative">
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] bg-[#111] border border-zinc-800 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
+        <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] bg-[#111] border border-zinc-800 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
         <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
         <span id="toast-message" class="text-sm font-medium">Added to cart</span>
     </div>
 
-    <!-- Category Needs Modal -->
-    <div id="category-modal" class="fixed inset-0 z-[70] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="bg-brand-dark border border-brand-border rounded-[2rem] p-8 max-w-lg w-full mx-4 transform translate-y-8 transition-transform duration-500 shadow-2xl relative" id="category-modal-content">
-            <button onclick="closeCategoryModal()" class="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <div id="category-modal-body">
-                <!-- Injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-black transform -translate-y-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) flex flex-col pt-24 px-6 pb-12">
-        <nav class="flex flex-col gap-6 text-2xl font-medium tracking-tight">
-            <a href="index.html" class="text-white border-b border-brand-border pb-4 flex justify-between items-center group">Home <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue"></i></a>
-            <a href="laptops.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Laptops <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue"></i></a>
-            <a href="phones.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Phones <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue"></i></a>
-            <a href="accessories.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Accessories <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue"></i></a>
-            <a href="guides.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Guides <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-blue"></i></a>
-            <a href="compare.html" class="text-brand-blue border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Compare Products <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
-        </nav>
-        <div class="mt-auto">
-            <a href="https://wa.me/2347086676866" target="_blank" class="w-full bg-white text-black py-4 rounded-full font-medium flex items-center justify-center gap-2">
-                Talk to MetaGie <i data-lucide="message-circle" class="w-5 h-5"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Cart Overlay & Drawer -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCart()"></div>
     
     <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-dark border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
@@ -142,7 +112,11 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
         </div>
-        <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-6"></div>
+
+        <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-6">
+            <!-- Cart items injected here via JS -->
+        </div>
+
         <div id="cart-footer" class="p-6 border-t border-brand-border bg-brand-black hidden">
             <div class="flex justify-between items-center mb-6 text-lg font-medium">
                 <span class="text-zinc-400">Total</span>
@@ -152,19 +126,23 @@
                 Order via WhatsApp 
                 <i data-lucide="message-circle" class="w-5 h-5"></i>
             </button>
-            <p class="text-center text-xs text-zinc-600 mt-4">You will review your order on WhatsApp before sending.</p>
+            <p class="text-center text-xs text-zinc-600 mt-4">
+                You will review your order on WhatsApp before sending.
+            </p>
         </div>
     </div>
 
-    <header class="fixed top-0 left-0 right-0 z-[65] glass-nav border-b border-brand-border">
-        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between relative">
-            
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-brand-border">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
             <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-2 relative z-10">
-                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 30L20 10L30 30L25 30L20 20L15 30H10Z" fill="white"/>
-                    <path d="M20 10L25 20L30 10H20Z" fill="white"/>
-                </svg>
+            <a href="#" class="flex items-center gap-2">
+                <img 
+        src="logo.webp" 
+        alt="MetaGie Gadgets Logo"
+        width="32" 
+        height="32"
+        class="w-8 h-8 object-contain"
+    >
                 <div class="flex flex-col">
                     <span class="font-semibold text-lg leading-none tracking-wide">MetaGie</span>
                     <span class="text-[0.55rem] tracking-[0.2em] text-zinc-500 uppercase mt-0.5">Gadgets</span>
@@ -172,60 +150,20 @@
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-brand-gray h-full">
-                <a href="index.html" class="text-white hover:text-white transition-colors">Home</a>
-                
-                <!-- Animated Dropdown for Gadgets -->
-                <div class="h-full flex items-center group relative cursor-pointer">
-                    <span class="hover:text-white flex items-center gap-1 transition-colors">
-                        Gadgets <i data-lucide="chevron-down" class="w-3 h-3 group-hover:rotate-180 transition-transform duration-300"></i>
-                    </span>
-                    
-                    <!-- Mega Menu Dropdown -->
-                    <div class="mega-menu absolute top-[80px] left-1/2 -translate-x-1/2 bg-brand-dark border border-brand-border rounded-[2rem] p-6 w-[600px] shadow-2xl flex gap-6">
-                        <div class="w-1/2 space-y-2">
-                            <a href="laptops.html" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-900 transition-colors group/link">
-                                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 group-hover/link:bg-brand-blue group-hover/link:text-white transition-colors"><i data-lucide="laptop" class="w-5 h-5"></i></div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Laptops</h4>
-                                    <p class="text-xs text-zinc-500 font-normal">MacBooks, PCs & Workstations</p>
-                                </div>
-                            </a>
-                            <a href="phones.html" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-900 transition-colors group/link">
-                                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 group-hover/link:bg-brand-blue group-hover/link:text-white transition-colors"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Phones</h4>
-                                    <p class="text-xs text-zinc-500 font-normal">iPhones & Premium Androids</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="w-1/2 space-y-2">
-                            <a href="accessories.html" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-900 transition-colors group/link">
-                                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 group-hover/link:bg-brand-blue group-hover/link:text-white transition-colors"><i data-lucide="headphones" class="w-5 h-5"></i></div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Accessories</h4>
-                                    <p class="text-xs text-zinc-500 font-normal">Audio, Chargers & Peripherals</p>
-                                </div>
-                            </a>
-                            <a href="compare.html" class="flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-900 transition-colors group/link">
-                                <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 group-hover/link:bg-brand-blue group-hover/link:text-white transition-colors"><i data-lucide="scale" class="w-5 h-5"></i></div>
-                                <div>
-                                    <h4 class="text-white font-medium mb-1">Compare</h4>
-                                    <p class="text-xs text-brand-blue font-normal">Compare devices side-by-side</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="laptops.html" class="hover:text-white transition-colors">Laptops</a>
-                <a href="phones.html" class="hover:text-white transition-colors">Phones</a>
-                <a href="guides.html" class="hover:text-white transition-colors">Guides</a>
-                <a href="about.html" class="hover:text-white transition-colors">About</a>
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-brand-gray">
+                <a href="#" class="text-white">Home</a>
+                <a href="#" class="hover:text-white flex items-center gap-1 group">
+                    Gadgets <i data-lucide="chevron-down" class="w-3 h-3 group-hover:rotate-180 transition-transform"></i>
+                </a>
+                <a href="#" class="hover:text-white">Laptops</a>
+                <a href="#" class="hover:text-white">Phones</a>
+                <a href="#" class="hover:text-white">Accessories</a>
+                <a href="#" class="hover:text-white">Guides</a>
+                <a href="#" class="hover:text-white">About</a>
             </nav>
 
             <!-- Actions -->
-            <div class="flex items-center gap-4 relative z-10">
+            <div class="flex items-center gap-4">
                 <button class="hidden sm:flex text-brand-gray hover:text-white w-10 h-10 items-center justify-center rounded-full hover:bg-zinc-900 transition-colors">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </button>
@@ -236,9 +174,8 @@
                 <a href="https://wa.me/2347086676866" target="_blank" class="hidden md:flex bg-transparent border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-900 text-white items-center justify-center px-5 py-2 rounded-full font-medium transition-all duration-200 text-sm">
                     Talk to MetaGie
                 </a>
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-brand-gray w-10 h-10 flex items-center justify-center z-[70] relative">
-                    <!-- Icon toggled via JS -->
-                    <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                <button class="lg:hidden text-brand-gray w-10 h-10 flex items-center justify-center">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
@@ -247,9 +184,11 @@
     <main class="pt-20">
         
         <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+            <!-- Subtle background gradient mask -->
             <div class="absolute inset-0 bg-gradient-to-br from-zinc-900/40 via-brand-black to-brand-black z-0 pointer-events-none"></div>
             
-            <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row items-center pt-12 pb-20 animate-slide-in opacity-0" style="animation-delay: 0.1s;">
+            <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row items-center pt-12 pb-20">
+                <!-- Text Content -->
                 <div class="lg:w-1/2 mb-16 lg:mb-0 max-w-2xl text-center lg:text-left z-20">
                     <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-medium leading-[1.05] tracking-tight mb-6">
                         Technology<br/>for a Better You.
@@ -258,18 +197,19 @@
                         Premium gadgets. Trusted quality.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="laptops.html" class="bg-brand-blue hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition-colors text-base flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,70,240,0.3)]">
+                        <button class="bg-brand-blue hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition-colors text-base flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,70,240,0.3)]">
                             Explore Gadgets <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <a href="compare.html" class="bg-transparent border border-zinc-700 hover:bg-zinc-900 text-white px-8 py-4 rounded-full font-medium transition-colors text-base flex items-center justify-center gap-2">
-                            Compare Products <i data-lucide="scale" class="w-4 h-4"></i>
+                        </button>
+                        <a href="https://wa.me/2347086676866" target="_blank" class="bg-transparent border border-zinc-700 hover:bg-zinc-900 text-white px-8 py-4 rounded-full font-medium transition-colors text-base flex items-center justify-center gap-2">
+                            Talk to MetaGie <i data-lucide="message-circle" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
 
+                <!-- Hero Image (Matching reference dark aesthetic) -->
                 <div class="lg:w-1/2 relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
                     <img 
-                        src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=1200&q=80" 
+                        src="hero.webp" 
                         alt="Premium Dark Laptop" 
                         class="w-[120%] lg:w-[140%] max-w-none h-auto object-cover opacity-90 mix-blend-lighten absolute lg:right-[-10%] top-1/2 -translate-y-1/2 drop-shadow-2xl"
                         style="mask-image: radial-gradient(circle at center, black 40%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);"
@@ -280,11 +220,15 @@
 
         <div class="border-y border-brand-border bg-[#080808]">
             <div class="max-w-[1400px] mx-auto px-6 py-10">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="features-container">
-                    <!-- Features injected via JS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Features will be injected here via JS -->
+                    <div id="features-container" class="contents"></div>
                 </div>
             </div>
         </div>
+
+
+    
 
         <section class="py-24 max-w-[1400px] mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

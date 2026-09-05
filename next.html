@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin | Nigeria - Creator & Innovator Ecosystem</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B1215',    // Deep slate/black
+                            gray: '#1A2327',    // Slightly lighter dark
+                            green: '#10B981',   // Primary emerald green
+                            light: '#E6F8F3',   // Very light green tint for backgrounds
+                            text: '#9CA3AF'     // Gray text for dark mode
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000')",
+                        'map-pattern': "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=2000')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(11, 18, 21, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Smooth transitions for SPA */
+        .page-section {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-green-400 to-brand-green flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-green-500/30">
+                            aN
+                        </div>
+                        <div class="text-white font-bold text-xl tracking-tight hidden sm:block">
+                            ORIGIN <span class="font-light text-gray-400">| NIGERIA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                    <a href="#" data-target="home" class="nav-link text-white hover:text-brand-green transition">Home</a>
+                    <a href="#" data-target="about" class="nav-link text-gray-300 hover:text-white transition">About</a>
+                    <a href="#" data-target="community" class="nav-link text-gray-300 hover:text-white transition">Community</a>
+                    <a href="#" data-target="projects" class="nav-link text-gray-300 hover:text-white transition">Projects</a>
+                    <a href="#" data-target="opportunities" class="nav-link text-gray-300 hover:text-white transition">Opportunities</a>
+                    <a href="#" data-target="events" class="nav-link text-gray-300 hover:text-white transition">Events</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-gray-300 hover:text-white"><i class="fas fa-search"></i></button>
+                    <button class="text-white text-sm font-medium hover:text-brand-green transition">Sign In</button>
+                    <button class="bg-brand-green hover:bg-green-600 text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-lg shadow-green-500/20">
+                        Join the Ecosystem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-root" class="pt-20">
+
+        <section id="home" class="page-section block">
+            
+            <div class="relative bg-brand-dark overflow-hidden">
+                <div class="absolute inset-0 bg-hero-pattern opacity-10 bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/95 to-transparent"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-24 pb-32">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+                                Nigeria's <br> Next Generation <br>
+                                <span class="text-gradient">of creators, builders and innovators,</span><br>
+                                rising together.
+                            </h1>
+                            <p class="text-gray-400 text-lg mb-8 max-w-lg">
+                                ORIGIN | NIGERIA is the definitive ecosystem empowering creators to impact, connect, and thrive.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <button class="bg-brand-green hover:bg-green-600 text-white px-8 py-3.5 rounded-full font-medium transition flex items-center gap-2 shadow-lg shadow-green-500/20">
+                                    Join the Ecosystem <i class="fas fa-arrow-right text-sm"></i>
+                                </button>
+                                <button class="glass-card text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-medium transition flex items-center gap-2">
+                                    Watch Video <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="relative hidden lg:block">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-green/20 to-transparent rounded-full filter blur-3xl"></div>
+                            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800" alt="Nigerian Creators" class="relative z-10 rounded-2xl shadow-2xl border border-white/10 object-cover h-[500px] w-full">
+                            
+                            <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl z-20 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-white"><i class="fas fa-check"></i></div>
+                                <div>
+                                    <p class="text-white font-bold">People. Ideas. Solutions.</p>
+                                    <p class="text-brand-green text-sm">A Greater Nigeria</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 bg-black/20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-1">50,000+</h3>
+                                <p class="text-brand-text text-sm">Verified Members</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-1">35,000+</h3>
+                                <p class="text-brand-text text-sm">Active Creators</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-1">10,000+</h3>
+                                <p class="text-brand-text text-sm">Opportunities Secured</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-1">36+</h3>
+                                <p class="text-brand-text text-sm">Community Hubs</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-1">36</h3>
+                                <p class="text-brand-text text-sm">States Represented</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-12">
+                        <div class="max-w-2xl">
+                            <h4 class="text-brand-green font-semibold tracking-wider text-sm mb-2 uppercase">What is Origin | Nigeria?</h4>
+                            <h2 class="text-4xl font-bold text-gray-900 mb-4">A home for Nigeria's brightest minds.</h2>
+                            <p class="text-gray-600">We connect developers, designers, entrepreneurs, writers, marketers, researchers, artisans and problem solvers to build real solutions for real challenges — together.</p>
+                        </div>
+                        <button class="hidden md:flex items-center gap-2 text-gray-900 font-medium hover:text-brand-green transition">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-brand-light p-8 rounded-2xl border border-green-100 hover:shadow-xl transition group">
+                            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-green text-2xl mb-6 shadow-sm group-hover:scale-110 transition">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Build</h3>
+                            <p class="text-gray-600 text-sm">Turn your ideas into real solutions with the right tools and support.</p>
+                        </div>
+                        <div class="bg-brand-light p-8 rounded-2xl border border-green-100 hover:shadow-xl transition group">
+                            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-green text-2xl mb-6 shadow-sm group-hover:scale-110 transition">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Connect</h3>
+                            <p class="text-gray-600 text-sm">Meet collaborators, mentors, and opportunity partners.</p>
+                        </div>
+                        <div class="bg-brand-light p-8 rounded-2xl border border-green-100 hover:shadow-xl transition group">
+                            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-green text-2xl mb-6 shadow-sm group-hover:scale-110 transition">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Grow</h3>
+                            <p class="text-gray-600 text-sm">Access resources, training, grants and global opportunities.</p>
+                        </div>
+                        <div class="bg-brand-light p-8 rounded-2xl border border-green-100 hover:shadow-xl transition group">
+                            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-brand-green text-2xl mb-6 shadow-sm group-hover:scale-110 transition">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Impact</h3>
+                            <p class="text-gray-600 text-sm">Create solutions that solve real problems in Nigerian communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-24 bg-brand-dark relative overflow-hidden">
+                <div class="absolute inset-0 bg-map-pattern opacity-10 bg-cover bg-center"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="relative h-96 bg-brand-gray rounded-3xl border border-white/10 flex items-center justify-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent"></div>
+                            <div class="absolute w-3 h-3 bg-brand-green rounded-full shadow-[0_0_15px_#10B981] top-1/3 left-1/3"></div>
+                            <div class="absolute w-4 h-4 bg-brand-green rounded-full shadow-[0_0_20px_#10B981] top-1/2 left-1/2"></div>
+                            <div class="absolute w-2 h-2 bg-brand-green rounded-full shadow-[0_0_10px_#10B981] bottom-1/3 right-1/4"></div>
+                            <i class="fas fa-map-marked-alt text-8xl text-white/5"></i>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-brand-green font-semibold tracking-wider text-sm mb-2 uppercase">A Nation of Creators</h4>
+                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">38 states. One community.</h2>
+                            <p class="text-gray-400 text-lg mb-8">
+                                From Lagos to Maiduguri, from Sokoto to Calabar — Origin Nigeria connects passionate people across all 36 states and the FCT, building a stronger, smarter, more innovative Nigeria.
+                            </p>
+                            <button class="bg-brand-green text-white px-6 py-3 rounded-full font-medium hover:bg-green-600 transition mb-12">
+                                Explore the Community <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                            
+                            <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+                                <div>
+                                    <div class="text-brand-green text-2xl mb-2"><i class="far fa-heart"></i></div>
+                                    <h4 class="text-white font-bold text-xl">36</h4>
+                                    <p class="text-gray-500 text-sm">States</p>
+                                </div>
+                                <div>
+                                    <div class="text-brand-green text-2xl mb-2"><i class="far fa-user-circle"></i></div>
+                                    <h4 class="text-white font-bold text-xl">50,000+</h4>
+                                    <p class="text-gray-500 text-sm">Members</p>
+                                </div>
+                                <div>
+                                    <div class="text-brand-green text-2xl mb-2"><i class="far fa-flag"></i></div>
+                                    <h4 class="text-white font-bold text-xl">1 Vision</h4>
+                                    <p class="text-gray-500 text-sm">A Greater Nigeria</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h4 class="text-brand-green font-semibold tracking-wider text-sm mb-2 uppercase">Who Belongs?</h4>
+                            <h2 class="text-3xl font-bold text-gray-900">If you can create something valuable,<br>you belong here.</h2>
+                        </div>
+                        <div class="hidden md:flex items-center text-brand-green bg-green-100 px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fas fa-check-circle mr-2"></i> Everyone Welcome
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-code mr-2"></i> Developers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-paint-brush mr-2"></i> Designers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-lightbulb mr-2"></i> Entrepreneurs</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-pen mr-2"></i> Writers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-video mr-2"></i> Videographers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-bullhorn mr-2"></i> Marketers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-search mr-2"></i> Researchers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-cogs mr-2"></i> Engineers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-hammer mr-2"></i> Artisans</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-puzzle-piece mr-2"></i> Problem Solvers</span>
+                        <span class="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:border-brand-green hover:text-brand-green cursor-pointer transition shadow-sm"><i class="fas fa-users mr-2"></i> Community Organizers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <h4 class="text-brand-green font-semibold tracking-wider text-sm mb-2 uppercase">Projects</h4>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2">What we're building:<br>Indigenous Digital Solutions</h2>
+                            <p class="text-gray-600">Solutions for real Nigerian challenges — by Nigerians, for Nigeria and the world.</p>
+                        </div>
+                        <button class="hidden md:block border border-gray-300 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-50 transition">
+                            View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group cursor-pointer">
+                            <div class="h-48 bg-gray-200 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1595804574921-655b3401732e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Agriculture">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-green">Agriculture</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">AgriConnect</h3>
+                                <p class="text-gray-600 text-sm mb-4">Connecting farmers to markets with real-time data.</p>
+                                <div class="flex justify-between items-center text-brand-green text-sm font-medium">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group cursor-pointer">
+                            <div class="h-48 bg-gray-200 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Education">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-green">Education</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">EduSphere</h3>
+                                <p class="text-gray-600 text-sm mb-4">Accessible learning infrastructure for every Nigerian.</p>
+                                <div class="flex justify-between items-center text-brand-green text-sm font-medium">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group cursor-pointer">
+                            <div class="h-48 bg-gray-200 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Civic Tech">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-green">Civic Tech</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">GovPort</h3>
+                                <p class="text-gray-600 text-sm mb-4">A simpler bridge between citizens and government services.</p>
+                                <div class="flex justify-between items-center text-brand-green text-sm font-medium">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group cursor-pointer">
+                            <div class="h-48 bg-gray-200 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Healthcare">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-brand-green">Healthcare</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">HealthConnect</h3>
+                                <p class="text-gray-600 text-sm mb-4">Rural healthcare solutions with mobile access.</p>
+                                <div class="flex justify-between items-center text-brand-green text-sm font-medium">
+                                    View Project <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-8">
+                        <div>
+                            <h4 class="text-brand-green font-semibold tracking-wider text-sm mb-2 uppercase">Opportunities</h4>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2">Contracts. Jobs. Grants. For You.</h2>
+                            <p class="text-gray-600">Access real opportunities from government, organizations and global partners.</p>
+                        </div>
+                        <button class="hidden md:block border border-gray-300 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition">
+                            View Opportunities <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-gray-200 flex justify-between items-center hover:border-brand-green transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-xl"><i class="fas fa-building"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Digital Innovation Grant</h4>
+                                    <p class="text-sm text-gray-500">Federal Ministry of Communications</p>
+                                    <div class="flex items-center gap-3 mt-2">
+                                        <span class="text-xs font-medium px-2 py-1 bg-green-100 text-green-700 rounded">Grant</span>
+                                        <span class="text-xs text-gray-400"><i class="far fa-clock"></i> Oct 15, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="bg-brand-dark text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-green transition">Apply Now</button>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-200 flex justify-between items-center hover:border-brand-green transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-xl"><i class="fas fa-globe"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Tech for Good Challenge</h4>
+                                    <p class="text-sm text-gray-500">UNDP Nigeria</p>
+                                    <div class="flex items-center gap-3 mt-2">
+                                        <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded">Competition</span>
+                                        <span class="text-xs text-gray-400"><i class="far fa-clock"></i> Nov 2, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="bg-brand-dark text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-green transition">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative bg-brand-dark py-24 overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576789966395-5f939e6a0033?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+                <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-green-400 to-brand-green rounded-2xl flex items-center justify-center text-white text-3xl font-bold mb-8 shadow-2xl shadow-green-500/40">
+                        aN
+                    </div>
+                    <h2 class="text-5xl font-bold text-white mb-6">Don't build the future alone.</h2>
+                    <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Be part of a national movement of creators, innovators, and problem solvers.</p>
+                    <div class="flex justify-center gap-4">
+                        <button class="bg-brand-green hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold transition text-lg shadow-lg shadow-green-500/30">
+                            Join the Ecosystem <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="about" class="page-section hidden">
+            <div class="py-32 bg-white text-center min-h-[70vh] flex flex-col justify-center items-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-4">About Origin | Nigeria</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">We are building Nigeria's indigenous digital foundation. This view demonstrates the SPA routing functionality.</p>
+            </div>
+        </section>
+
+        <section id="community" class="page-section hidden">
+            <div class="py-32 bg-gray-50 text-center min-h-[70vh] flex flex-col justify-center items-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-4">Community Network</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Connecting creators across 36 states. This view demonstrates the SPA routing functionality.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="page-section hidden">
+            <div class="py-32 bg-white text-center min-h-[70vh] flex flex-col justify-center items-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-4">Indigenous Solutions</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore all projects built by our verified members. This view demonstrates the SPA routing functionality.</p>
+            </div>
+        </section>
+
+        <section id="opportunities" class="page-section hidden">
+            <div class="py-32 bg-brand-light text-center min-h-[70vh] flex flex-col justify-center items-center">
+                <h1 class="text-5xl font-bold text-brand-dark mb-4">Opportunities Board</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Grants, jobs, and government contracts. This view demonstrates the SPA routing functionality.</p>
+            </div>
+        </section>
+
+        <section id="events" class="page-section hidden">
+            <div class="py-32 bg-white text-center min-h-[70vh] flex flex-col justify-center items-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-4">Upcoming Events</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hackathons, build challenges, and local meetups. This view demonstrates the SPA routing functionality.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-brand-dark pt-20 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded-md bg-brand-green flex items-center justify-center text-white font-bold text-sm">aN</div>
+                        <div class="text-white font-bold text-lg tracking-tight">ORIGIN <span class="font-light text-gray-400">| NIGERIA</span></div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-sm">Creator & Innovator Ecosystem building indigenous solutions for national development.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-green hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-green hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-green hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-green hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Product</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" onclick="navigateTo('about')" class="hover:text-brand-green transition">About</a></li>
+                        <li><a href="#" onclick="navigateTo('community')" class="hover:text-brand-green transition">Community</a></li>
+                        <li><a href="#" onclick="navigateTo('projects')" class="hover:text-brand-green transition">Projects</a></li>
+                        <li><a href="#" onclick="navigateTo('opportunities')" class="hover:text-brand-green transition">Opportunities</a></li>
+                        <li><a href="#" onclick="navigateTo('events')" class="hover:text-brand-green transition">Events</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Press</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Resources</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-brand-green transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Code of Conduct</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Community Guidelines</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition">Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 Origin | Nigeria. All rights reserved.</p>
+                <p class="text-gray-500 text-sm font-medium">A Greater Nigeria, Together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Store all pages and links
+        const pages = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Function to handle navigation
+        function navigateTo(targetId) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('block');
+                page.classList.add('hidden');
+            });
+
+            // Show target page
+            const targetPage = document.getElementById(targetId);
+            if(targetPage) {
+                targetPage.classList.remove('hidden');
+                targetPage.classList.add('block');
+            }
+
+            // Update active states in navbar
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-target') === targetId) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-brand-green');
+                } else {
+                    link.classList.remove('text-brand-green', 'text-white');
+                    link.classList.add('text-gray-300');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add event listeners to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                navigateTo(targetId);
+            });
+        });
+
+        // Initialize active state on load based on default target ('home')
+        document.addEventListener('DOMContentLoaded', () => {
+            navLinks.forEach(link => {
+                if(link.getAttribute('data-target') === 'home') {
+                    link.classList.add('text-brand-green');
+                    link.classList.remove('text-gray-300');
+                }
+            });
+        });
+
+        // Add scrolled navbar effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg', 'bg-brand-dark/95');
+                nav.classList.remove('bg-brand-dark/85');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-brand-dark/95');
+                nav.classList.add('bg-brand-dark/85');
+            }
+        });
+    </script>
+</body>
+</html>

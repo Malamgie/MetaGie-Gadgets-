@@ -96,7 +96,7 @@
 <body class="relative">
 
     <!-- Toast Notification -->
-        <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] bg-[#111] border border-zinc-800 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
+  <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] bg-[#111] border border-zinc-800 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
         <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
         <span id="toast-message" class="text-sm font-medium">Added to cart</span>
     </div>
@@ -227,9 +227,6 @@
             </div>
         </div>
 
-
-    
-
         <section class="py-24 max-w-[1400px] mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
@@ -247,6 +244,22 @@
         </section>
 
         <section class="py-24 max-w-[1400px] mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-zinc-500 text-xs font-bold tracking-widest uppercase mb-3 block">FEATURED GADGETS</span>
+                    <h2 class="text-3xl md:text-5xl font-medium text-white mb-2 tracking-tight">Our handpicked<br/>favorites.</h2>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="laptops.html" class="hidden md:block bg-transparent border border-zinc-700 hover:bg-zinc-900 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors">View all</a>
+                </div>
+            </div>
+            
+            <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Products injected here -->
+            </div>
+        </section>
+
+<section class="py-24 max-w-[1400px] mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <div class="lg:w-1/3">
                     <span class="text-zinc-500 text-xs font-bold tracking-widest uppercase mb-4 block">WHY METAGIE</span>
@@ -409,9 +422,9 @@
             <div>
                 <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Shop</h4>
                 <ul class="space-y-4 text-brand-gray">
-                    <li><a href="laptops.html" class="hover:text-white transition-colors">Laptops</a></li>
-                    <li><a href="phones.html" class="hover:text-white transition-colors">Phones</a></li>
-                    <li><a href="accessories.html" class="hover:text-white transition-colors">Accessories</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Laptops</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Phones</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Accessories</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Smart Devices</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">All Gadgets</a></li>
                 </ul>
@@ -420,9 +433,9 @@
             <div>
                 <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Guides</h4>
                 <ul class="space-y-4 text-brand-gray">
-                    <li><a href="guides.html" class="hover:text-white transition-colors">Tech Guides</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Tech Guides</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Buying Guides</a></li>
-                    <li><a href="comparison.html" class="hover:text-white transition-colors">Comparisons</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Comparisons</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Tech Tips</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Reviews</a></li>
                 </ul>
@@ -431,8 +444,8 @@
             <div>
                 <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Company</h4>
                 <ul class="space-y-4 text-brand-gray">
-                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
-                    <li><a href="about.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
@@ -460,6 +473,7 @@
             </button>
         </div>
     </footer>
+
 
     <script id="meta-gie-db">
         /**
@@ -613,6 +627,29 @@
                     highlights: ["Active Noise Cancellation", "Adaptive Transparency", "USB-C Case"]
                 }
             ],
+
+             const DATA = {
+            features: [
+                { icon: "shield-check", title: "Authentic Products", desc: "Genuine gadgets from trusted sources." },
+                { icon: "tag", title: "Smart Pricing", desc: "Competitive prices, no hidden costs." },
+                { icon: "star", title: "Expert Guidance", desc: "We help you choose the right tech." },
+                { icon: "headphones", title: "Customer Support", desc: "Support before and after you buy." }
+            ],
+        
+            
+            guides: [
+                { tag: "STORAGE", title: "SSD vs HDD", desc: "What's the difference?", image: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80" },
+                { tag: "PERFORMANCE", title: "How much RAM do you really need?", desc: "We guide you to the right choice.", image: "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80" },
+                { tag: "PROCESSOR", title: "Core i5 vs Core i7", desc: "Which is better?", image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" },
+                { tag: "GUIDE", title: "Best laptop for programming", desc: "Top picks for developers.", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" }
+            ],
+            testimonials: [
+                { quote: "MetaGie helped me choose the perfect laptop for my work. The service is top-notch!", name: "Abdullahi M.", role: "Software Developer", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
+                { quote: "Genuine products, great prices and they really know their stuff. Highly recommended.", name: "Fatima A.", role: "Designer", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" },
+                { quote: "The best tech store I've dealt with. Fast delivery and excellent customer support.", name: "Daniel O.", role: "Entrepreneur", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" }
+            ]
+        };
+        
             
             // Structured data for UI generation
             ui: {
@@ -974,4 +1011,4 @@
         });
     </script>
 </body>
-                  </html>
+</html>

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phones | MetaGie Gadgets</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0a0a0a',
+                            border: '#1a1a1a',
+                            blue: '#2546F0',
+                            gray: '#a1a1aa'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.4s ease-out',
+                        'slide-up': 'slideUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(10px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #333; }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #2546F0;
+            cursor: pointer;
+            margin-top: -6px;
+            border: 2px solid #fff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #1a1a1a;
+            border-radius: 2px;
+        }
+        
+        /* Custom Checkbox */
+        .custom-checkbox input:checked + div {
+            background-color: #2546F0;
+            border-color: #2546F0;
+        }
+        .custom-checkbox input:checked + div svg {
+            display: block;
+        }
+
+        /* Hide scrollbar for mobile filters */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] bg-[#111] border border-zinc-800 px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px]">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+        <span id="toast-message" class="text-sm font-medium">Added to cart</span>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-brand-black transform -translate-y-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) flex flex-col pt-24 px-6 pb-12">
+        <nav class="flex flex-col gap-6 text-2xl font-medium tracking-tight">
+            <a href="index.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Home <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            <a href="laptops.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Laptops <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            <a href="phones.html" class="text-white border-b border-brand-border pb-4 flex justify-between items-center group text-brand-blue">Phones <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            <a href="accessories.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Accessories <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            <a href="guides.html" class="text-zinc-400 hover:text-white border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Guides <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+            <a href="compare.html" class="text-brand-blue border-b border-brand-border pb-4 flex justify-between items-center group transition-colors">Compare Products <i data-lucide="arrow-right" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity"></i></a>
+        </nav>
+    </div>
+
+    <!-- Mobile Filters Drawer -->
+    <div id="mobile-filters" class="fixed inset-0 z-[60] bg-brand-black transform translate-y-full transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) flex flex-col pt-6 px-6 pb-6 lg:hidden">
+        <div class="flex justify-between items-center mb-6 border-b border-brand-border pb-4">
+            <h2 class="text-lg font-medium">Filters</h2>
+            <button onclick="toggleMobileFilters()" class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div class="flex-grow overflow-y-auto no-scrollbar" id="mobile-filters-container">
+            <!-- Cloned via JS from desktop filters -->
+        </div>
+        <div class="pt-4 border-t border-brand-border mt-auto">
+            <button onclick="toggleMobileFilters()" class="w-full bg-brand-blue text-white py-3 rounded-full font-medium">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay & Drawer -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCart()"></div>
+    
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-dark border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <div class="p-6 border-b border-brand-border flex justify-between items-center bg-brand-black">
+            <h2 class="text-xl font-medium flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i> Your Cart
+            </h2>
+            <button onclick="toggleCart()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-zinc-800 text-zinc-400 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-6"></div>
+        <div id="cart-footer" class="p-6 border-t border-brand-border bg-brand-black hidden">
+            <div class="flex justify-between items-center mb-6 text-lg font-medium">
+                <span class="text-zinc-400">Total</span>
+                <span id="cart-total-price">₦0</span>
+            </div>
+            <button onclick="checkout()" class="w-full py-4 bg-brand-blue hover:bg-blue-700 text-white rounded-full text-base font-medium flex items-center justify-center gap-2 transition-colors">
+                Order via WhatsApp 
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-[55] glass-nav border-b border-brand-border">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-2 relative z-10">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 30L20 10L30 30L25 30L20 20L15 30H10Z" fill="white"/>
+                    <path d="M20 10L25 20L30 10H20Z" fill="white"/>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-semibold text-lg leading-none tracking-wide">MetaGie</span>
+                    <span class="text-[0.55rem] tracking-[0.2em] text-zinc-500 uppercase mt-0.5">Gadgets</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-brand-gray h-full relative">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                
+                <div class="h-full flex items-center group relative cursor-pointer">
+                    <span class="hover:text-white flex items-center gap-1 transition-colors">
+                        Gadgets <i data-lucide="chevron-down" class="w-3 h-3 group-hover:rotate-180 transition-transform duration-300"></i>
+                    </span>
+                    <div class="absolute top-[80px] left-1/2 -translate-x-1/2 bg-brand-dark border border-brand-border rounded-xl w-48 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                        <a href="laptops.html" class="block px-4 py-2 hover:bg-zinc-800 text-white">Laptops</a>
+                        <a href="phones.html" class="block px-4 py-2 hover:bg-zinc-800 text-white">Phones</a>
+                        <a href="accessories.html" class="block px-4 py-2 hover:bg-zinc-800 text-white">Accessories</a>
+                        <a href="compare.html" class="block px-4 py-2 hover:bg-zinc-800 text-brand-blue font-medium border-t border-brand-border mt-1 pt-3">Compare</a>
+                    </div>
+                </div>
+                
+                <a href="laptops.html" class="hover:text-white transition-colors">Laptops</a>
+                <a href="phones.html" class="text-white relative after:content-[''] after:absolute after:-bottom-[28px] after:left-0 after:w-full after:h-[2px] after:bg-brand-blue">Phones</a>
+                <a href="accessories.html" class="hover:text-white transition-colors">Accessories</a>
+                <a href="guides.html" class="hover:text-white transition-colors">Guides</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+            </nav>
+
+            <div class="flex items-center gap-4 relative z-10">
+                <button class="hidden sm:flex text-brand-gray hover:text-white w-10 h-10 items-center justify-center rounded-full hover:bg-zinc-900 transition-colors">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <button onclick="toggleCart()" class="text-brand-gray hover:text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-zinc-900 transition-colors relative">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute top-1.5 right-1.5 w-4 h-4 bg-brand-blue text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-brand-black hidden">0</span>
+                </button>
+                <a href="https://wa.me/2347086676866" target="_blank" class="hidden md:flex bg-transparent border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-900 text-white items-center justify-center px-5 py-2 rounded-full font-medium transition-all duration-200 text-sm">
+                    Talk to MetaGie
+                </a>
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden text-brand-gray w-10 h-10 flex items-center justify-center z-[70] relative">
+                    <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        
+        <!-- HERO SECTION -->
+        <section class="relative bg-brand-black pt-16 pb-32 lg:pt-24 lg:pb-40 overflow-hidden">
+            <!-- Background Image Mask -->
+            <div class="absolute right-0 top-0 w-full lg:w-[60%] h-full opacity-80 pointer-events-none flex justify-end items-center">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1200&q=80" alt="Phones Hero" class="w-[120%] max-w-none lg:w-full h-[150%] object-cover object-left mix-blend-lighten" style="mask-image: linear-gradient(to right, transparent, black 50%); -webkit-mask-image: linear-gradient(to right, transparent, black 50%); transform: translateX(10%) translateY(-10%);">
+            </div>
+
+            <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10">
+                <div class="text-sm text-zinc-500 font-medium mb-6 flex items-center gap-2">
+                    <a href="index.html" class="hover:text-white transition-colors">Home</a> 
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    <span class="text-zinc-300">Phones</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
+                    <span class="font-bold text-white">Phones</span> <span class="font-light text-zinc-300">that<br/>keep up with you.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-zinc-400 max-w-md font-light leading-snug mb-10">
+                    Explore our range of smartphones built for performance, style and everyday reliability.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-full font-medium transition-colors text-sm flex items-center justify-center gap-2 w-fit">
+                        Explore Phones <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <a href="https://wa.me/2347086676866" target="_blank" class="bg-transparent border border-zinc-700 hover:bg-zinc-900 text-white px-6 py-3 rounded-full font-medium transition-colors text-sm flex items-center justify-center gap-2 w-fit">
+                        Need help choosing? <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLOATING TRUST BAR -->
+        <div class="max-w-[1400px] mx-auto px-6 relative z-20 -mt-16 mb-12">
+            <div class="bg-[#0A0A0A] border border-brand-border rounded-2xl p-6 shadow-2xl">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-zinc-400 shrink-0"></i>
+                        <div>
+                            <h4 class="font-medium text-sm text-white mb-0.5">100% Authentic</h4>
+                            <p class="text-xs text-zinc-500">Genuine products, trusted sources.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="tag" class="w-8 h-8 text-zinc-400 shrink-0"></i>
+                        <div>
+                            <h4 class="font-medium text-sm text-white mb-0.5">Best Prices</h4>
+                            <p class="text-xs text-zinc-500">Competitive prices you can rely on.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="lock" class="w-8 h-8 text-zinc-400 shrink-0"></i>
+                        <div>
+                            <h4 class="font-medium text-sm text-white mb-0.5">Secure Ordering</h4>
+                            <p class="text-xs text-zinc-500">Safe, secure and protected checkout.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="headphones" class="w-8 h-8 text-zinc-400 shrink-0"></i>
+                        <div>
+                            <h4 class="font-medium text-sm text-white mb-0.5">After Sales Support</h4>
+                            <p class="text-xs text-zinc-500">We're here for you before and after.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN LAYOUT (Filters + Grid) -->
+        <section class="max-w-[1400px] mx-auto px-6 pb-24">
+            
+            <!-- Mobile Filter Toggle -->
+            <div class="lg:hidden flex justify-between items-center mb-6">
+                <span class="text-zinc-400 text-sm">Showing phones</span>
+                <button onclick="toggleMobileFilters()" class="bg-zinc-900 border border-brand-border px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+                    <i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Filters
+                </button>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-10">
+                
+                <!-- SIDEBAR FILTERS (Desktop) -->
+                <aside class="hidden lg:block w-64 shrink-0" id="desktop-filters">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-zinc-400">FILTERS</h2>
+                        <button onclick="clearFilters()" class="text-brand-blue text-sm hover:text-white transition-colors">Clear all</button>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="mb-8">
+                        <p class="text-sm text-zinc-400 mb-2">Search phones</p>
+                        <div class="relative">
+                            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500"></i>
+                            <input type="text" id="phone-search" oninput="handleSearch(this.value)" placeholder="Search phones..." class="w-full bg-brand-dark border border-brand-border rounded-lg pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-zinc-500 transition-colors placeholder-zinc-600">
+                        </div>
+                    </div>
+
+                    <!-- Filter Accordions -->
+                    <div class="space-y-6">
+                        <!-- Brand -->
+                        <div class="border-b border-brand-border pb-6">
+                            <button class="flex items-center justify-between w-full text-left font-medium mb-4 group">
+                                Brand <i data-lucide="chevron-up" class="w-4 h-4 text-zinc-500 group-hover:text-white"></i>
+                            </button>
+                            <div class="space-y-3" id="filter-brand">
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="all" checked onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-brand-blue">All Brands</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Apple" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Apple</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Samsung" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Samsung</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Google" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Google</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Xiaomi" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Xiaomi</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Infinix" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Infinix</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Tecno" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Tecno</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="OnePlus" onchange="handleFilterChange('brand', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">OnePlus</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="border-b border-brand-border pb-6">
+                            <button class="flex items-center justify-between w-full text-left font-medium mb-6 group">
+                                Price Range <i data-lucide="chevron-up" class="w-4 h-4 text-zinc-500 group-hover:text-white"></i>
+                            </button>
+                            <div class="px-2">
+                                <div class="relative w-full h-1 bg-brand-border rounded-full mb-4">
+                                    <div class="absolute left-0 top-0 h-full w-[80%] bg-brand-blue rounded-full"></div>
+                                    <input type="range" min="50000" max="2500000" value="2000000" class="absolute top-1/2 -translate-y-1/2 w-full z-10">
+                                </div>
+                                <div class="flex justify-between items-center text-xs text-zinc-400">
+                                    <span>₦50,000</span>
+                                    <span>₦2,500,000+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Storage -->
+                        <div class="border-b border-brand-border pb-6">
+                            <button class="flex items-center justify-between w-full text-left font-medium mb-4 group">
+                                Storage <i data-lucide="chevron-up" class="w-4 h-4 text-zinc-500 group-hover:text-white"></i>
+                            </button>
+                            <div class="space-y-3" id="filter-storage">
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="all" checked onchange="handleFilterChange('storage', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-brand-blue">All Storage</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="128GB" onchange="handleFilterChange('storage', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">128GB</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="256GB" onchange="handleFilterChange('storage', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">256GB</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="512GB" onchange="handleFilterChange('storage', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">512GB</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="1TB" onchange="handleFilterChange('storage', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">1TB</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Availability -->
+                        <div class="pb-6">
+                            <button class="flex items-center justify-between w-full text-left font-medium mb-4 group">
+                                Availability <i data-lucide="chevron-up" class="w-4 h-4 text-zinc-500 group-hover:text-white"></i>
+                            </button>
+                            <div class="space-y-3" id="filter-availability">
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="all" checked onchange="handleFilterChange('availability', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-brand-blue">All</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="In Stock" onchange="handleFilterChange('availability', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">In Stock</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer custom-checkbox group">
+                                    <input type="checkbox" class="hidden" value="Pre-order" onchange="handleFilterChange('availability', this)">
+                                    <div class="w-5 h-5 rounded border border-brand-border bg-brand-dark flex items-center justify-center transition-colors group-hover:border-zinc-500">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-white hidden"></i>
+                                    </div>
+                                    <span class="text-sm text-zinc-400 group-hover:text-white transition-colors">Pre-order</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- MAIN PRODUCT GRID -->
+                <div class="flex-grow">
+                    
+                    <!-- Grid Header -->
+                    <div class="hidden lg:flex justify-between items-center mb-8 gap-4 border-b border-brand-border pb-4">
+                        <span class="text-zinc-400 text-sm" id="result-count">Showing phones</span>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-2 text-sm text-zinc-400">
+                                <span>Sort by:</span>
+                                <select class="bg-brand-dark border border-brand-border rounded-lg px-3 py-1.5 text-white focus:outline-none focus:border-brand-blue appearance-none pr-8 relative">
+                                    <option>Most Popular</option>
+                                    <option>Price: Low to High</option>
+                                    <option>Price: High to Low</option>
+                                    <option>Newest Arrivals</option>
+                                </select>
+                            </div>
+                            
+                            <div class="flex border border-brand-border rounded-lg bg-brand-dark p-0.5">
+                                <button class="p-1.5 bg-zinc-800 rounded text-white shadow-sm"><i data-lucide="layout-grid" class="w-4 h-4"></i></button>
+                                <button class="p-1.5 text-zinc-500 hover:text-white transition-colors"><i data-lucide="list" class="w-4 h-4"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Container -->
+                    <div id="phone-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Content injected via JS -->
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="mt-12 flex justify-center">
+                        <button class="bg-brand-dark border border-brand-border hover:border-zinc-500 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors flex items-center gap-2">
+                            Load more phones <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HELP ME CHOOSE INLINE BANNER -->
+        <section class="max-w-[1400px] mx-auto px-6 mb-16">
+            <div class="bg-[#0A0A0A] border border-brand-border rounded-[2rem] overflow-hidden flex flex-col md:flex-row">
+                <!-- Left Content -->
+                <div class="md:w-1/2 p-8 md:p-12 relative flex flex-col justify-center min-h-[400px]">
+                    <div class="absolute inset-0 z-0 opacity-40">
+                        <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=800&q=80" alt="Phones bg" class="w-full h-full object-cover mix-blend-lighten" style="mask-image: linear-gradient(to right, black, transparent);">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="text-zinc-500 text-xs font-bold tracking-widest uppercase mb-3 block">NOT SURE WHAT TO BUY?</span>
+                        <h2 class="text-3xl md:text-5xl font-medium text-white mb-4 tracking-tight leading-tight">Let MetaGie help you<br/>find the right phone.</h2>
+                        <p class="text-zinc-400 mb-8 max-w-sm text-sm leading-relaxed">
+                            Answer a few simple questions and we'll recommend the perfect phone for your needs.
+                        </p>
+                        <button onclick="window.open('https://wa.me/2347086676866', '_blank')" class="bg-white text-black hover:bg-gray-200 px-6 py-3 rounded-full text-sm font-medium transition-colors flex items-center gap-2 w-fit">
+                            Help me choose <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Content (Questions) -->
+                <div class="md:w-1/2 bg-[#050505] border-l border-brand-border p-8 md:p-12 flex flex-col justify-center">
+                    <div class="space-y-4">
+                        <button class="w-full text-left p-4 border border-brand-border rounded-xl bg-brand-dark flex justify-between items-center hover:border-zinc-500 transition-colors group">
+                            <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">What will you use the phone for?</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+                        <button class="w-full text-left p-4 border border-brand-border rounded-xl bg-brand-dark flex justify-between items-center hover:border-zinc-500 transition-colors group">
+                            <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">What's your budget?</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+                        <button class="w-full text-left p-4 border border-brand-border rounded-xl bg-brand-dark flex justify-between items-center hover:border-zinc-500 transition-colors group">
+                            <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">Which brand do you prefer?</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+                        <button class="w-full text-left p-4 border border-brand-border rounded-xl bg-brand-dark flex justify-between items-center hover:border-zinc-500 transition-colors group">
+                            <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">Any other preferences?</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECONDARY TRUST BAR -->
+        <section class="max-w-[1400px] mx-auto px-6 py-12 border-t border-brand-border">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex items-start gap-4">
+                    <i data-lucide="rotate-ccw" class="w-6 h-6 text-brand-gray shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-medium text-sm text-white mb-1">7-Day Returns</h4>
+                        <p class="text-xs text-zinc-500">Hassle-free returns within 7 days.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-brand-gray shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-medium text-sm text-white mb-1">Quality Checked</h4>
+                        <p class="text-xs text-zinc-500">Every device is tested and certified.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i data-lucide="truck" class="w-6 h-6 text-brand-gray shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-medium text-sm text-white mb-1">Fast Delivery</h4>
+                        <p class="text-xs text-zinc-500">Nationwide delivery, safe and reliable.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i data-lucide="headphones" class="w-6 h-6 text-brand-gray shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 class="font-medium text-sm text-white mb-1">Dedicated Support</h4>
+                        <p class="text-xs text-zinc-500">Quick responses whenever you need.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="max-w-[1400px] mx-auto px-6 pb-24">
+            <div class="bg-[#0A0A0A] border border-brand-border rounded-[2rem] overflow-hidden flex flex-col md:flex-row items-center relative h-auto md:h-64">
+                <div class="md:w-1/2 p-8 md:p-12 relative z-10 w-full">
+                    <h2 class="text-2xl font-medium mb-2">Stay in the loop</h2>
+                    <p class="text-zinc-400 mb-6 text-sm">Get the latest phones, deals and tech tips.</p>
+                    
+                    <form class="flex w-full max-w-md bg-brand-black border border-zinc-800 rounded-full overflow-hidden p-1 focus-within:border-zinc-600 transition-colors">
+                        <input type="email" placeholder="Enter your email" class="w-full bg-transparent px-4 py-2 text-sm text-white focus:outline-none" required>
+                        <button type="submit" class="bg-brand-blue hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2 relative h-48 md:h-full w-full flex items-end justify-end opacity-80 pointer-events-none">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351cb31b?auto=format&fit=crop&w=800&q=80" alt="Newsletter Phones" class="absolute right-0 bottom-0 h-[120%] w-auto object-contain mix-blend-lighten transform translate-x-10 translate-y-4" style="mask-image: linear-gradient(to right, transparent, black 40%); -webkit-mask-image: linear-gradient(to right, transparent, black 40%);">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-brand-border bg-[#030303] pt-20 pb-8 px-6 text-sm">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-20">
+            <!-- Branding Column -->
+            <div class="lg:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-6">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30L20 10L30 30L25 30L20 20L15 30H10Z" fill="white"/>
+                        <path d="M20 10L25 20L30 10H20Z" fill="white"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-lg leading-none tracking-wide">MetaGie</span>
+                        <span class="text-[0.55rem] tracking-[0.2em] text-zinc-500 uppercase mt-0.5">Gadgets</span>
+                    </div>
+                </a>
+                <p class="text-brand-gray mb-8 max-w-xs text-base">Technology for a Better You.</p>
+                
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-gray hover:text-white transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-gray hover:text-white transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-gray hover:text-white transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-gray hover:text-white transition-colors"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+
+            <!-- Links Columns -->
+            <div>
+                <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Shop</h4>
+                <ul class="space-y-4 text-brand-gray">
+                    <li><a href="laptops.html" class="hover:text-white transition-colors">Laptops</a></li>
+                    <li><a href="phones.html" class="hover:text-white transition-colors">Phones</a></li>
+                    <li><a href="accessories.html" class="hover:text-white transition-colors">Accessories</a></li>
+                    <li><a href="compare.html" class="hover:text-white transition-colors">Smart Devices</a></li>
+                    <li><a href="index.html" class="hover:text-white transition-colors">All Gadgets</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Guides</h4>
+                <ul class="space-y-4 text-brand-gray">
+                    <li><a href="guides.html" class="hover:text-white transition-colors">Tech Guides</a></li>
+                    <li><a href="guides.html" class="hover:text-white transition-colors">Buying Guides</a></li>
+                    <li><a href="compare.html" class="hover:text-white transition-colors">Comparisons</a></li>
+                    <li><a href="guides.html" class="hover:text-white transition-colors">Tech Tips</a></li>
+                    <li><a href="guides.html" class="hover:text-white transition-colors">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Company</h4>
+                <ul class="space-y-4 text-brand-gray">
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="https://wa.me/2347086676866" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-medium text-white mb-6 uppercase text-xs tracking-widest">Support</h4>
+                <ul class="space-y-4 text-brand-gray">
+                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Shipping & Delivery</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Returns & Refunds</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Warranty</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto border-t border-brand-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600">
+            <p>© 2026 MetaGie Gadgets. All rights reserved.</p>
+            <p>Built with passion for technology.</p>
+            
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 bg-brand-blue hover:bg-blue-700 rounded-full text-white flex items-center justify-center transition-colors group">
+                <i data-lucide="arrow-up" class="w-4 h-4 group-hover:-translate-y-1 transition-transform"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         VIRTUAL DATABASE & LOGIC
+    =========================================== -->
+    <script id="meta-gie-db">
+        /* --- START OF VIRTUAL db.js --- */
+        const CONFIG = {
+            whatsappNumber: "2347086676866", 
+            storeName: "MetaGie Gadgets",
+            currency: "₦",
+            cartStorageKey: "metagie_cart_v2"
+        };
+
+        const MetaGieDB = {
+            products: [
+                {
+                    id: "iphone-15-pro-max",
+                    category: "phone",
+                    brand: "Apple",
+                    name: "iPhone 15 Pro Max",
+                    price: 1650000,
+                    badge: "Best Seller",
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "256GB", ram: "8GB RAM" }
+                },
+                {
+                    id: "samsung-s24-ultra",
+                    category: "phone",
+                    brand: "Samsung",
+                    name: "Samsung Galaxy S24 Ultra",
+                    price: 1380000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1706606991536-e39841f5f502?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "256GB", ram: "12GB RAM" }
+                },
+                {
+                    id: "pixel-8-pro",
+                    category: "phone",
+                    brand: "Google",
+                    name: "Google Pixel 8 Pro",
+                    price: 980000,
+                    badge: "New Arrival",
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1697017267151-512c019d19a2?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "128GB", ram: "12GB RAM" }
+                },
+                {
+                    id: "iphone-15",
+                    category: "phone",
+                    brand: "Apple",
+                    name: "iPhone 15",
+                    price: 1150000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1695048132958-6c0b9c3f4e1f?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "128GB", ram: "6GB RAM" }
+                },
+                {
+                    id: "samsung-a54",
+                    category: "phone",
+                    brand: "Samsung",
+                    name: "Samsung Galaxy A54",
+                    price: 585000,
+                    badge: "Hot Deal",
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1678911820864-e2c567c655d7?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "128GB", ram: "8GB RAM" }
+                },
+                {
+                    id: "oneplus-12",
+                    category: "phone",
+                    brand: "OnePlus",
+                    name: "OnePlus 12",
+                    price: 1050000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1706606991316-f3cc83de7f2e?auto=format&fit=crop&w=600&q=80", // placeholder
+                    specs: { storage: "256GB", ram: "12GB RAM" }
+                },
+                {
+                    id: "iphone-14-pro",
+                    category: "phone",
+                    brand: "Apple",
+                    name: "iPhone 14 Pro",
+                    price: 1250000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1663465373307-e898492c6c4c?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "128GB", ram: "6GB RAM" }
+                },
+                {
+                    id: "xiaomi-13t-pro",
+                    category: "phone",
+                    brand: "Xiaomi",
+                    name: "Xiaomi 13T Pro",
+                    price: 750000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1647427017042-498c8c734b41?auto=format&fit=crop&w=600&q=80", // placeholder
+                    specs: { storage: "256GB", ram: "12GB RAM" }
+                },
+                {
+                    id: "infinix-zero-30",
+                    category: "phone",
+                    brand: "Infinix",
+                    name: "Infinix Zero 30 5G",
+                    price: 360000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1650392336829-873b88a892b1?auto=format&fit=crop&w=600&q=80", // placeholder
+                    specs: { storage: "256GB", ram: "8GB RAM" }
+                },
+                {
+                    id: "tecno-phantom-v",
+                    category: "phone",
+                    brand: "Tecno",
+                    name: "Tecno Phantom V Flip",
+                    price: 615000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1600087626014-e652e18bbff2?auto=format&fit=crop&w=600&q=80", // placeholder
+                    specs: { storage: "256GB", ram: "8GB RAM" }
+                },
+                {
+                    id: "samsung-z-flip5",
+                    category: "phone",
+                    brand: "Samsung",
+                    name: "Samsung Galaxy Z Flip5",
+                    price: 1100000,
+                    badge: null,
+                    availability: "Pre-order",
+                    image: "https://images.unsplash.com/photo-1691437812979-9f79ce58eb1a?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "256GB", ram: "8GB RAM" }
+                },
+                {
+                    id: "iphone-13",
+                    category: "phone",
+                    brand: "Apple",
+                    name: "iPhone 13",
+                    price: 780000,
+                    badge: null,
+                    availability: "In Stock",
+                    image: "https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=600&q=80",
+                    specs: { storage: "128GB", ram: "4GB RAM" }
+                }
+            ]
+        };
+        /* --- END OF VIRTUAL db.js --- */
+
+        // --- STATE & UTILS ---
+        let cart = [];
+        let activeFilters = {
+            search: '',
+            brand: ['all'],
+            storage: ['all'],
+            availability: ['all']
+        };
+
+        const formatCurrency = (amount) => `${CONFIG.currency}${amount.toLocaleString()}`;
+
+        // Toast
+        const showToast = (message) => {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+            }, 3000);
+        };
+
+        // Mobile Menu
+        const toggleMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isOpen = menu.classList.contains('translate-y-0');
+
+            if (isOpen) {
+                menu.classList.remove('translate-y-0');
+                menu.classList.add('-translate-y-full');
+                icon.setAttribute('data-lucide', 'menu');
+                document.body.style.overflow = '';
+            } else {
+                menu.classList.remove('-translate-y-full');
+                menu.classList.add('translate-y-0');
+                icon.setAttribute('data-lucide', 'x');
+                document.body.style.overflow = 'hidden';
+            }
+            lucide.createIcons();
+        };
+
+        // Mobile Filters
+        const toggleMobileFilters = () => {
+            const filters = document.getElementById('mobile-filters');
+            const isOpen = filters.classList.contains('translate-y-0');
+            
+            if (isOpen) {
+                filters.classList.remove('translate-y-0');
+                filters.classList.add('translate-y-full');
+                document.body.style.overflow = '';
+            } else {
+                // Ensure content is synced
+                if(document.getElementById('mobile-filters-container').innerHTML.trim() === '') {
+                    document.getElementById('mobile-filters-container').innerHTML = document.getElementById('desktop-filters').innerHTML;
+                    // remove duplicate ID issues for search
+                    document.getElementById('mobile-filters-container').querySelector('#phone-search').removeAttribute('id');
+                    lucide.createIcons();
+                }
+                filters.classList.remove('translate-y-full');
+                filters.classList.add('translate-y-0');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        // --- CART SYSTEM ---
+        const toggleCart = () => {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.remove('opacity-100', 'pointer-events-auto');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        const initCart = () => {
+            try {
+                const savedCart = localStorage.getItem(CONFIG.cartStorageKey);
+                if (savedCart) cart = JSON.parse(savedCart);
+            } catch (e) {
+                cart = [];
+            }
+            renderCart();
+        };
+
+        const saveCart = () => {
+            localStorage.setItem(CONFIG.cartStorageKey, JSON.stringify(cart));
+            renderCart();
+        };
+
+        const addToCart = (e, productId) => {
+            e.stopPropagation(); // prevent card click
+            const product = MetaGieDB.products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                let specsString = product.brand;
+                if(product.specs.storage && product.specs.ram) {
+                    specsString = `${product.specs.storage} • ${product.specs.ram}`;
+                }
+
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    specs: specsString,
+                    quantity: 1
+                });
+            }
+            saveCart();
+            showToast(`${product.name} added to cart`);
+        };
+
+        const updateQuantity = (productId, delta) => {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity += delta;
+                if (cart[itemIndex].quantity <= 0) cart.splice(itemIndex, 1);
+                saveCart();
+            }
+        };
+
+        const removeFromCart = (productId) => {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+        };
+
+        const getCartTotal = () => cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const getCartItemCount = () => cart.reduce((sum, item) => sum + item.quantity, 0);
+
+        const checkout = () => {
+            if (cart.length === 0) return;
+            let message = `Hello, I would like to place an order from ${CONFIG.storeName}.\n\n*Products:*\n`;
+            
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                message += `\n${index + 1}. ${item.name}`;
+                if (item.specs) message += ` (${item.specs})`;
+                message += `\n   Quantity: ${item.quantity}`;
+                message += `\n   Unit Price: ${formatCurrency(item.price)}`;
+                message += `\n   Subtotal: ${formatCurrency(subtotal)}`;
+                message += `\n`;
+            });
+            
+            message += `\n*Total Order Amount: ${formatCurrency(getCartTotal())}*`;
+            message += `\n\nPlease let me know the next steps.`;
+            
+            window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        };
+
+        // --- FILTERING LOGIC ---
+        const handleSearch = (value) => {
+            activeFilters.search = value.toLowerCase();
+            renderProductGrid();
+        };
+
+        const handleFilterChange = (type, checkbox) => {
+            const val = checkbox.value;
+            
+            // If "all" is clicked, clear others
+            if (val === 'all') {
+                activeFilters[type] = ['all'];
+                // Uncheck others in same group
+                const group = checkbox.closest('.space-y-3').querySelectorAll('input');
+                group.forEach(cb => { if(cb !== checkbox) cb.checked = false; });
+            } else {
+                // Remove 'all' if present
+                activeFilters[type] = activeFilters[type].filter(v => v !== 'all');
+                
+                // Add or remove value
+                if (checkbox.checked) {
+                    activeFilters[type].push(val);
+                } else {
+                    activeFilters[type] = activeFilters[type].filter(v => v !== val);
+                }
+
+                // Uncheck 'all' visual
+                const allCb = checkbox.closest('.space-y-3').querySelector('input[value="all"]');
+                if(allCb && activeFilters[type].length > 0) allCb.checked = false;
+
+                // Re-check 'all' if empty
+                if(activeFilters[type].length === 0) {
+                    activeFilters[type] = ['all'];
+                    if(allCb) allCb.checked = true;
+                }
+            }
+            
+            renderProductGrid();
+        };
+
+        const clearFilters = () => {
+            activeFilters = { search: '', brand: ['all'], storage: ['all'], availability: ['all'] };
+            document.getElementById('phone-search').value = '';
+            
+            // Reset visual checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                if (cb.value === 'all') cb.checked = true;
+                else cb.checked = false;
+            });
+            
+            renderProductGrid();
+        };
+
+        // --- DOM RENDERING ---
+        const renderCart = () => {
+            const container = document.getElementById('cart-items');
+            const footer = document.getElementById('cart-footer');
+            const badge = document.getElementById('cart-badge');
+            const count = getCartItemCount();
+            
+            badge.textContent = count;
+            count > 0 ? badge.classList.remove('hidden') : badge.classList.add('hidden');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-zinc-500 space-y-4 pt-20">
+                        <i data-lucide="shopping-bag" class="w-16 h-16 opacity-20"></i>
+                        <p class="text-lg">Your cart is empty.</p>
+                        <button onclick="toggleCart()" class="mt-4 px-6 py-2 border border-zinc-700 rounded-full hover:bg-zinc-800 text-white transition-colors">Continue Shopping</button>
+                    </div>`;
+                footer.classList.add('hidden');
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex gap-4 items-start bg-brand-black p-4 rounded-xl border border-brand-border">
+                        <div class="w-20 h-20 bg-zinc-900 rounded-lg overflow-hidden shrink-0">
+                            <img src="${item.image}" class="w-full h-full object-cover opacity-80" loading="lazy">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h4 class="font-medium text-sm text-white mb-1 line-clamp-1">${item.name}</h4>
+                                <button onclick="removeFromCart('${item.id}')" class="text-zinc-600 hover:text-red-500 transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                            </div>
+                            <div class="text-zinc-500 text-xs mb-2">${item.specs}</div>
+                            <div class="font-semibold text-sm mb-3">${formatCurrency(item.price)}</div>
+                            <div class="flex items-center gap-4 bg-[#111] w-fit rounded-lg border border-zinc-800">
+                                <button onclick="updateQuantity('${item.id}', -1)" class="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white">-</button>
+                                <span class="text-sm font-medium w-4 text-center">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)" class="w-8 h-8 flex items-center justify-center text-zinc-400 hover:text-white">+</button>
+                            </div>
+                        </div>
+                    </div>`).join('');
+                document.getElementById('cart-total-price').textContent = formatCurrency(getCartTotal());
+                footer.classList.remove('hidden');
+            }
+            lucide.createIcons();
+        };
+
+        const renderProductCard = (p) => {
+            // Determine badge HTML
+            let badgeHtml = '';
+            if (p.badge) {
+                let badgeClass = "bg-blue-600/20 text-blue-500 border border-blue-500/30"; 
+                if(p.badge === 'New Arrival') badgeClass = "bg-purple-600/20 text-purple-400 border border-purple-500/30";
+                if(p.badge === 'Hot Deal') badgeClass = "bg-rose-600/20 text-rose-400 border border-rose-500/30";
+                
+                badgeHtml = `<div class="absolute top-4 left-4 z-10 ${badgeClass} text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">${p.badge}</div>`;
+            }
+
+            // Specs formatting
+            const specsStr = Object.values(p.specs).filter(v => v).join(' • ');
+            
+            // Availability color
+            const availClass = p.availability === 'Pre-order' ? 'text-amber-500' : 'text-emerald-500';
+
+            return `
+            <div onclick="window.location.href='product.html?id=${p.id}'" class="bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col hover:border-zinc-700 transition-colors group relative overflow-hidden cursor-pointer">
+                ${badgeHtml}
+                <button class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-brand-black/50 border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Phone specific aspect ratio (taller) -->
+                <div class="aspect-[4/5] bg-[#050505] rounded-xl mb-6 flex items-center justify-center overflow-hidden p-4 relative">
+                    <img src="${p.image}" class="w-full h-full object-contain mix-blend-lighten opacity-90 group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy">
+                    
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <button onclick="addToCart(event, '${p.id}')" class="bg-brand-blue text-white px-5 py-2 rounded-full font-medium text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2 hover:bg-blue-600">
+                            Add to Cart <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-auto relative z-10">
+                    <h3 class="font-medium text-[15px] mb-1 truncate text-white group-hover:text-brand-blue transition-colors">${p.name}</h3>
+                    <p class="text-xs text-zinc-500 mb-4 truncate">${specsStr}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="font-semibold text-lg text-white">${formatCurrency(p.price)}</span>
+                        <span class="text-[10px] uppercase font-bold tracking-wider ${availClass}">${p.availability}</span>
+                    </div>
+                </div>
+            </div>`;
+        };
+
+        const renderProductGrid = () => {
+            const grid = document.getElementById('phone-grid');
+            let html = '';
+            
+            // Filter Logic
+            const phones = MetaGieDB.products.filter(p => {
+                if (p.category !== 'phone') return false;
+                
+                // Text Search
+                if (activeFilters.search && !p.name.toLowerCase().includes(activeFilters.search)) return false;
+                
+                // Checkbox Filters
+                if (!activeFilters.brand.includes('all') && !activeFilters.brand.includes(p.brand)) return false;
+                if (!activeFilters.storage.includes('all') && !activeFilters.storage.includes(p.specs.storage)) return false;
+                if (!activeFilters.availability.includes('all') && !activeFilters.availability.includes(p.availability)) return false;
+                
+                return true;
+            });
+            
+            if (phones.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-zinc-500">No phones match your selected filters.</div>`;
+                document.getElementById('result-count').textContent = 'Showing 0 phones';
+                return;
+            }
+
+            phones.forEach((phone) => {
+                html += renderProductCard(phone);
+            });
+
+            grid.innerHTML = html;
+            document.getElementById('result-count').textContent = `Showing 1 - ${phones.length} of ${phones.length} phones`;
+            lucide.createIcons();
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initCart();
+            renderProductGrid();
+        });
+    </script>
+</body>
+  </html>
